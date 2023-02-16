@@ -6,13 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Personne {
+public abstract class Personne {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nom;
-	private String prenom;
+	protected Integer id;
+	protected String nom;
+	protected String prenom;
+	
 	public Integer getId() {
 		return id;
 	}
