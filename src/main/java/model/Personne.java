@@ -6,13 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Personne {
+public abstract class Personne {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nom;
-	private String prenom;
+	protected Integer id;
+	protected String nom;
+	protected String prenom;
+	protected Adresse adresse;
+	
+	public Adresse getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -31,16 +39,20 @@ public class Personne {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Personne(String nom, String prenom) {
+	
+	public Personne( String nom, String prenom, Adresse adresse) {
+		
 		this.nom = nom;
 		this.prenom = prenom;
-	}
-	public Personne() {
+		this.adresse = adresse;
 	}
 	@Override
 	public String toString() {
-		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
+		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + "]";
 	}
+	public Personne() {
+	}
+	
 	
 	
 
