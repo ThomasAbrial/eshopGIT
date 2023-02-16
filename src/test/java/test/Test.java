@@ -12,23 +12,25 @@ public class Test {
 	public static void main(String[] args) {
 
 		//Ca marche
-		Personne personne1 = new Personne("familyname","firstname");
-		Personne personne2 = new Personne("nomdefamille","prenom");
+		Personne c1 = new Personne("familyname","firstname");
+		Personne c2 = new Personne("nomdefamille","prenom");
 
 		Produit produit1 = new Produit("product",666.6);
 		Produit produit2 = new Produit("produit",0.99);
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshop");
+		Produit produit3 = new Produit("pomme",1.23);
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshopUnit");
 
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
 
-		em.persist(personne1);
-		em.persist(produit1);
+		em.persist(c1);
+		em.persist(c2);
 
-		em.persist(personne2);
+		em.persist(produit1);
 		em.persist(produit2);
+		em.persist(produit3);
 
 		em.getTransaction().commit();
 
