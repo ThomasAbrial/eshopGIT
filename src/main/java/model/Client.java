@@ -18,16 +18,17 @@ public class Client extends Personne{
 	public void setDate_de_naissance(LocalDate date_de_naissance) {
 		this.date_de_naissance = date_de_naissance;
 	}
+	
+	
+	public Client(String nom, String prenom, Adresse adresse, int age, LocalDate date_de_naissance) {
+		super(nom, prenom, adresse);
+		this.age = age;
+		this.date_de_naissance = date_de_naissance;
+	}
 	@Override
 	public String toString() {
 		return "Client [age=" + age + ", date_de_naissance=" + date_de_naissance + ", id=" + id + ", nom=" + nom
-				+ ", prenom=" + prenom + "]";
-	}
-	
-	public Client(String nom, String prenom, int age, LocalDate date_de_naissance) {
-		super(nom, prenom);
-		this.age = age;
-		this.date_de_naissance = date_de_naissance;
+				+ ", prenom=" + prenom + ", adresse=" + adresse + "]";
 	}
 	public Client() {
 	}

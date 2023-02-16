@@ -12,15 +12,18 @@ public class Fournisseur extends Personne{
 		this.societe = societe;
 	}
 
-	@Override
-	public String toString() {
-		return "Fournisseur [societe=" + societe + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
-	}
-
-	public Fournisseur(String nom, String prenom, String societe) {
-		super(nom, prenom);
+	
+	public Fournisseur( String nom, String prenom, Adresse adresse, String societe) {
+		super( nom, prenom, adresse);
 		this.societe = societe;
 	}
+
+	@Override
+	public String toString() {
+		return "Fournisseur [societe=" + societe + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse="
+				+ adresse + "]";
+	}
+
 	public Fournisseur() {
 		
 	}
