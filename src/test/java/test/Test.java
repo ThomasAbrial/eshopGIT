@@ -11,6 +11,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
+		//Ca marche
 		Personne personne1 = new Personne("familyname","firstname");
 		Personne personne2 = new Personne("nomdefamille","prenom");
 
