@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("supplier")
 public class Fournisseur extends Personne{
 
-	@Column(name="company")
+	@Column(name="company",unique=true)
 	private String societe;
 
 	
