@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -19,7 +20,9 @@ public abstract class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
+	@Column(name="firstname",length = 20 ,nullable = false)
 	protected String nom;
+	@Column(name="lastname",length = 20 ,nullable = false)
 	protected String prenom;
 	@Embedded
 	protected Adresse adresse;
