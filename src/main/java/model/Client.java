@@ -1,10 +1,13 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 
 @Entity
 @DiscriminatorValue("customer")
@@ -13,6 +16,8 @@ public class Client extends Personne{
 	private int age;
 	@Column(name="birthday")
 	private LocalDate date_de_naissance;
+	@ManyToMany
+	private List<Produit> produits = new ArrayList();
 	
 	//--------------------Getter/Setter-----------------
 	public int getAge() {
@@ -27,9 +32,13 @@ public class Client extends Personne{
 	public void setDate_de_naissance(LocalDate date_de_naissance) {
 		this.date_de_naissance = date_de_naissance;
 	}
-	
-	
-	//--------------------Construvteur-----------------
+	public List<Produit> getProduits() {
+		return produits;
+	}
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
+	}
+	//--------------------Constructeur-----------------
 	public Client(String nom, String prenom, Adresse adresse, int age, LocalDate date_de_naissance) {
 		super(nom, prenom, adresse);
 		this.age = age;

@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("supplier")
@@ -10,7 +11,7 @@ public class Fournisseur extends Personne{
 
 	@Column(name="company",unique=true)
 	private String societe;
-
+	
 	
 	//--------------------Getter/Setter-----------------
 	public String getSociete() {
@@ -21,10 +22,14 @@ public class Fournisseur extends Personne{
 		this.societe = societe;
 	}
 
-	
 	//--------------------constructeur-----------------
-	public Fournisseur( String nom, String prenom, Adresse adresse, String societe) {
-		super( nom, prenom, adresse);
+	
+	public Fournisseur() {
+		
+	}
+
+	public Fournisseur(String nom, String prenom, Adresse adresse, String societe) {
+		super(nom, prenom, adresse);
 		this.societe = societe;
 	}
 
@@ -34,8 +39,8 @@ public class Fournisseur extends Personne{
 				+ adresse + "]";
 	}
 
-	public Fournisseur() {
-		
-	}
+
+	
+	
 	
 }

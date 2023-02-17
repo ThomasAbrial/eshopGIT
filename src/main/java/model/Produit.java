@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +20,11 @@ public class Produit {
 	private String libelle;
 	@Column(name="price",columnDefinition = "DECIMAL(5,2)",nullable=false)
 	private double prix;
+	@ManyToOne
+	private Fournisseur fournisseur;
+
+	
+	//---------------setter/getter-------------
 	public Integer getId() {
 		return id;
 	}
@@ -37,15 +43,29 @@ public class Produit {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	@Override
-	public String toString() {
-		return "Produit [id=" + id + ", libelle=" + libelle + ", prix=" + prix + "]";
+	
+	public Fournisseur getFournisseur() {
+		return fournisseur;
 	}
-	public Produit(String libelle, double prix) {
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+	
+	//-------------------toString/Consructeur-----------
+	
+	public Produit(String libelle, double prix, Fournisseur fournisseur) {
 		this.libelle = libelle;
 		this.prix = prix;
+		this.fournisseur = fournisseur;
 	}
 	public Produit() {}
+	
+	@Override
+	public String toString() {
+		return "Produit [id=" + id + ", libelle=" + libelle + ", prix=" + prix + ", fournisseur=" + fournisseur
+				+ ", getId()=" + getId() + ", getLibelle()=" + getLibelle() + ", getPrix()=" + getPrix()
+				+ ", getFournisseur()=" + getFournisseur() + "]";
+	}
 	
 	
 	
