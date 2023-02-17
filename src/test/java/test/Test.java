@@ -1,6 +1,9 @@
 package test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,8 +31,9 @@ public class Test {
 		Produit produit2 = new Produit("Maquereaux",0.99,f1);
 		Produit produit3 = new Produit("pomme",1.23,f1);
 		
-		
-		
+		c1.getProduits().add(produit1);
+		c1.getProduits().add(produit2);
+		c1.getProduits().add(produit3);
 		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshopUnit");
