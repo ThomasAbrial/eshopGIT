@@ -1,5 +1,10 @@
 package model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("supplier")
 public class Fournisseur extends Personne{
 
 	private String societe;

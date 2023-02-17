@@ -17,7 +17,7 @@ public class Test {
 	public static void main(String[] args) {
 
 		Adresse a1 = new Adresse("12","rue du client","43586","Clientville");
-		Adresse a2 = new Adresse("666","Workered Road","????","Corporate Square");
+		Adresse a2 = new Adresse("666","Workered Road","9999","CorporateSquare");
 		
 		Client c1 = new Client("familyname","firstname",a1,24,LocalDate.parse("1999-09-09"));
 		Client c2 = new Client("nomdefamille","prenom",a1,25,LocalDate.parse("1998-01-01"));
@@ -27,6 +27,8 @@ public class Test {
 		Produit produit3 = new Produit("pomme",1.23);
 		
 		Fournisseur f1 = new Fournisseur("Worker","Working",a2,"Workerino.corp");
+		
+		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshopUnit");
 

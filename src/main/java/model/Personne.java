@@ -1,11 +1,19 @@
 package model;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type_personne",columnDefinition = "ENUM('customer','supplier')")
 public abstract class Personne {
 	
 	@Id
@@ -13,6 +21,7 @@ public abstract class Personne {
 	protected Integer id;
 	protected String nom;
 	protected String prenom;
+	@Embedded
 	protected Adresse adresse;
 	
 	public Adresse getAdresse() {
