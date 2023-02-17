@@ -10,11 +10,11 @@ import javax.persistence.Entity;
 @DiscriminatorValue("customer")
 public class Client extends Personne{
 	
-	
 	private int age;
 	@Column(name="birthday")
 	private LocalDate date_de_naissance;
 	
+	//--------------------Getter/Setter-----------------
 	public int getAge() {
 		return age;
 	}
@@ -29,6 +29,7 @@ public class Client extends Personne{
 	}
 	
 	
+	//--------------------Construvteur-----------------
 	public Client(String nom, String prenom, Adresse adresse, int age, LocalDate date_de_naissance) {
 		super(nom, prenom, adresse);
 		this.age = age;

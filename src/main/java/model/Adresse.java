@@ -7,16 +7,17 @@ import javax.persistence.Embeddable;
 public class Adresse {
 	
 	
-	@Column(name="number",length = 20 ,nullable = false)
+	@Column(name="number",length = 10 ,nullable = false)
 	private String numero;
-	@Column(name="way",length = 20 ,nullable = false)
+	@Column(name="street",length = 40 ,nullable = false)
 	private String voie;
-	@Column(name="postal_code",length = 20 ,nullable = false)
+	@Column(name="zipcode",length = 10 ,nullable = false)
 	private String cp;
-	@Column(name="city",length = 20 ,nullable = false)
+	@Column(name="city",length = 40 ,nullable = false)
 	private String ville;
 	
 	
+	//--------------------Getter/Setter-----------------
 	public String getNumero() {
 		return numero;
 	}
@@ -41,10 +42,15 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+	//--------------------String-----------------
+	
 	@Override
 	public String toString() {
 		return "Adresse [numero=" + numero + ", voie=" + voie + ", cp=" + cp + ", ville=" + ville + "]";
 	}
+	
+	//--------------------Constructeur-----------------
+	
 	public Adresse(String numero, String voie, String cp, String ville) {
 		
 		this.numero = numero;
@@ -52,8 +58,8 @@ public class Adresse {
 		this.cp = cp;
 		this.ville = ville;
 	}
-	public Adresse() {
-	}
+	
+	public Adresse() {}
 	
 	
 	

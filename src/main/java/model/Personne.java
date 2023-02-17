@@ -19,6 +19,7 @@ public abstract class Personne {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_person")
 	protected Integer id;
 	@Column(name="firstname",length = 20 ,nullable = false)
 	protected String nom;
