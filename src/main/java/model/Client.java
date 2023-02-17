@@ -2,10 +2,19 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("customer")
 public class Client extends Personne{
 	
+	
 	private int age;
+	@Column(name="birthday")
 	private LocalDate date_de_naissance;
+	
 	public int getAge() {
 		return age;
 	}
@@ -30,10 +39,6 @@ public class Client extends Personne{
 		return "Client [age=" + age + ", date_de_naissance=" + date_de_naissance + ", id=" + id + ", nom=" + nom
 				+ ", prenom=" + prenom + ", adresse=" + adresse + "]";
 	}
-	public Client() {
-	}
-	
-	
-	
+	public Client() {}
 	
 }

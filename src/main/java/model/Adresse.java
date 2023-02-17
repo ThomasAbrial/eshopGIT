@@ -1,11 +1,22 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 	
+	
+	@Column(name="number",length = 20 ,nullable = false)
 	private String numero;
+	@Column(name="way",length = 20 ,nullable = false)
 	private String voie;
+	@Column(name="postal_code",length = 20 ,nullable = false)
 	private String cp;
+	@Column(name="city",length = 20 ,nullable = false)
 	private String ville;
+	
+	
 	public String getNumero() {
 		return numero;
 	}
