@@ -22,11 +22,13 @@ public class Test {
 		Client c1 = new Client("Andy","Lobster",a1,24,LocalDate.parse("1979-09-09"));
 		Client c2 = new Client("Henry","Pottier",a1,25,LocalDate.parse("1998-01-01"));
 
-		Produit produit1 = new Produit("Chips",666.6);
-		Produit produit2 = new Produit("Maquereaux",0.99);
-		Produit produit3 = new Produit("pomme",1.23);
-		
 		Fournisseur f1 = new Fournisseur("Worker","Working",a2,"Workerino.corp");
+		
+		Produit produit1 = new Produit("Chips",666.6,f1);
+		Produit produit2 = new Produit("Maquereaux",0.99,f1);
+		Produit produit3 = new Produit("pomme",1.23,f1);
+		
+		
 		
 		
 		
