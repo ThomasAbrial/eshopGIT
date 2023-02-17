@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -20,7 +21,9 @@ public class Produit {
 	private String libelle;
 	@Column(name="price",columnDefinition = "DECIMAL(5,2)",nullable=false)
 	private double prix;
+	
 	@ManyToOne
+	@JoinColumn(name="vendeur")
 	private Fournisseur fournisseur;
 
 	

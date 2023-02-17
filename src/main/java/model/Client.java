@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -16,8 +18,19 @@ public class Client extends Personne{
 	private int age;
 	@Column(name="birthday")
 	private LocalDate date_de_naissance;
+	
 	@ManyToMany
+	@JoinTable(name="achats",
+			joinColumns = @JoinColumn(name="acheteur"),
+			inverseJoinColumns =@JoinColumn(name="produit"))
 	private List<Produit> produits = new ArrayList();
+	
+	
+	/*@JoinTable(
+			name="achats",
+			joinColumns = @JoinColumn(name="acheteur"),
+			inverseJoinColumns =@JoinColumn(name="produit"))*/
+	
 	
 	//--------------------Getter/Setter-----------------
 	public int getAge() {
