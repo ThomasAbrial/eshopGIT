@@ -13,9 +13,11 @@ public class Produit {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_product")
 	private Integer id;
+	@Column(name="label",nullable=false)
 	private String libelle;
-	@Column(name="price",columnDefinition = "DECIMAL(5,2)")
+	@Column(name="price",columnDefinition = "DECIMAL(5,2)",nullable=false)
 	private double prix;
 	public Integer getId() {
 		return id;

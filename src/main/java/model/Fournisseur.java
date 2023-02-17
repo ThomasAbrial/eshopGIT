@@ -11,6 +11,8 @@ public class Fournisseur extends Personne{
 	@Column(name="company")
 	private String societe;
 
+	
+	//--------------------Getter/Setter-----------------
 	public String getSociete() {
 		return societe;
 	}
@@ -20,6 +22,7 @@ public class Fournisseur extends Personne{
 	}
 
 	
+	//--------------------constructeur-----------------
 	public Fournisseur( String nom, String prenom, Adresse adresse, String societe) {
 		super( nom, prenom, adresse);
 		this.societe = societe;
