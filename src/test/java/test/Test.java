@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Achat;
 import model.Adresse;
 import model.Client;
 import model.Fournisseur;
@@ -30,11 +31,11 @@ public class Test {
 		Produit produit1 = new Produit("Chips",666.6,f1);
 		Produit produit2 = new Produit("Maquereaux",0.99,f1);
 		Produit produit3 = new Produit("pomme",1.23,f1);
-
-		c1.getProduits().add(produit1);
-		c1.getProduits().add(produit2);
-		c1.getProduits().add(produit3);
-
+		
+		Achat achat1 = new Achat(c1,produit1);
+		Achat achat2 = new Achat(c1,produit2);
+		Achat achat3 = new Achat(c1,produit3);
+	
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshopUnit");
 
