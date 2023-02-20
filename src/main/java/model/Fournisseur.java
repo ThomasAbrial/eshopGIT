@@ -15,7 +15,7 @@ public class Fournisseur extends Personne{
 	@Column(name="company",unique=true)
 	private String societe;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "fournisseur")
 	private List<Produit> produits;
 	
 	

@@ -50,6 +50,10 @@ public class Test {
 		em.persist(produit1);
 		em.persist(produit2);
 		em.persist(produit3);
+		
+		em.persist(achat1);
+		em.persist(achat2);
+		em.persist(achat3);
 
 		em.getTransaction().commit();
 
