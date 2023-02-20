@@ -2,10 +2,12 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -14,12 +16,16 @@ public class Achat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name="date_achat")
+	private LocalDate dateAchat;
 	
 	@ManyToOne
+	@JoinColumn(name="acheteur")
 	private Client client;
 	@ManyToOne
+	@JoinColumn(name="produit")
 	private Produit produit;
-	private LocalDate date_achat;
+	
 	
 	//--------------------Getter/Setter-----------------
 	public Integer getId() {
@@ -40,23 +46,23 @@ public class Achat {
 	public void setProduit(Produit produit) {
 		this.produit = produit;
 	}
-	public LocalDate getDate_achat() {
-		return date_achat;
+	public LocalDate getDateAchat() {
+		return dateAchat;
 	}
-	public void setDate_achat(LocalDate date_achat) {
-		this.date_achat = date_achat;
+	public void setDateAchat(LocalDate date_achat) {
+		this.dateAchat = date_achat;
 	}
 	
 	//--------------------constructeur-----------------
 	public Achat(Client client, Produit produit) {
 		this.client = client;
 		this.produit = produit;
-		this.date_achat=LocalDate.now();
+		this.dateAchat=LocalDate.now();
 	}
 	public Achat() {}
 	@Override
 	public String toString() {
-		return "Achat [id=" + id + ", client=" + client + ", produit=" + produit + ", date_achat=" + date_achat + "]";
+		return "Achat [id=" + id + ", client=" + client + ", produit=" + produit + ", date_achat=" + dateAchat + "]";
 	}
 	
 	
