@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +28,9 @@ public class Produit {
 	@ManyToOne
 	@JoinColumn(name="vendeur")
 	private Fournisseur fournisseur;
+	
+	@OneToMany(mappedBy = "produit")
+	private List<Achat> vente;
 
 	
 	//---------------setter/getter-------------
@@ -53,6 +59,13 @@ public class Produit {
 	public void setFournisseur(Fournisseur fournisseur) {
 		this.fournisseur = fournisseur;
 	}
+	public List<Achat> getVente() {
+		return vente;
+	}
+	public void setVente(List<Achat> vente) {
+		this.vente = vente;}
+	
+	
 	
 	//-------------------toString/Consructeur-----------
 	

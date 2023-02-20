@@ -10,31 +10,38 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("customer")
 public class Client extends Personne{
-	
+
 	private int age;
 	@Column(name="birthday")
 	private LocalDate date_de_naissance;
-	
-	@ManyToMany
-	@JoinTable(name="achats",
-			joinColumns = @JoinColumn(name="acheteur"),
-			inverseJoinColumns =@JoinColumn(name="produit"))
-	private List<Produit> produits = new ArrayList();
-	
-	
+
+	@OneToMany(mappedBy = "client")
+	private List<Achat> achats = new ArrayList();
+
+
 	/*@JoinTable(
 			name="achats",
 			joinColumns = @JoinColumn(name="acheteur"),
 			inverseJoinColumns =@JoinColumn(name="produit"))*/
-	
-	
+
+
 	//--------------------Getter/Setter-----------------
+
+
+
 	public int getAge() {
 		return age;
+	}
+	public List<Achat> getAchats() {
+		return achats;
+	}
+	public void setAchats(List<Achat> achats) {
+		this.achats = achats;
 	}
 	public void setAge(int age) {
 		this.age = age;
@@ -45,12 +52,7 @@ public class Client extends Personne{
 	public void setDate_de_naissance(LocalDate date_de_naissance) {
 		this.date_de_naissance = date_de_naissance;
 	}
-	public List<Produit> getProduits() {
-		return produits;
-	}
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
-	}
+
 	//--------------------Constructeur-----------------
 	public Client(String nom, String prenom, Adresse adresse, int age, LocalDate date_de_naissance) {
 		super(nom, prenom, adresse);
@@ -63,5 +65,5 @@ public class Client extends Personne{
 				+ ", prenom=" + prenom + ", adresse=" + adresse + "]";
 	}
 	public Client() {}
-	
+
 }
