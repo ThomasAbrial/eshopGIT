@@ -33,7 +33,7 @@ public class Test {
 		Produit produit3 = new Produit("pomme",1.23,f1);
 		
 		Achat achat1 = new Achat(c1,produit1);
-		Achat achat2 = new Achat(c1,produit2);
+		Achat achat2 = new Achat(c2,produit2);
 		Achat achat3 = new Achat(c1,produit3);
 	
 
